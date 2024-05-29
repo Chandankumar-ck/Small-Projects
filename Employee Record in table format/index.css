@@ -1,0 +1,62 @@
+/* Fill CSS here */
+div {
+    display: flex;
+    justify-content: space-between;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    margin: 18px 15px 0px 15px;
+}
+
+h1{
+    text-align: center;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 34px;
+    color: #058d9c;
+    text-decoration: underline;
+
+}
+
+form{
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    border-radius: 8px; 
+    height: fit-content;
+    padding: 30px 65px 20px 65px ;
+
+}
+#submit {
+    background-color: #058d9c;
+
+    height: 20px;
+    font-size: 15px;
+    padding-bottom: 5px;
+    cursor: pointer;
+ }
+
+form > input, label, select, select>option {
+    margin-bottom: 10px;
+    margin-top: 5px;
+    width: 200px;
+    height: 25px;
+    border-radius: 5px;
+    
+}
+
+table{
+    border: 1px ;
+
+    margin-right: 30px;
+    padding: 5px;
+    width: 90%;
+}
+ th {
+    background-color:#058d9c ;
+    
+}
+
+td{
+    text-align: center;
+    width: fit-content;
+    padding: 3px;
+    border: 0.5px solid black;
+   
+}

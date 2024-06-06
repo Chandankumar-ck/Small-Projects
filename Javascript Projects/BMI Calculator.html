@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>bmicalculator</title>
+</head>
+
+<body>
+    <div class="hero">
+    <h1>BMI CALCULATOR</h1>
+    <p>Enter your height & weight below to check your BMI results</p>
+   
+    <div class="kg">
+        <p>Put your weight in Here (KG) </p>
+        <input class="kginput" type="number">
+    </div>
+    <div class="cm">
+        <p>Put your height in Here (CM) </p>
+        <input class="cminput" type="number">
+    </div>
+    <button id="calculate-BMI"> calculate BMI</button>
+    <div class="main">
+
+    </div>
+</div>
+    <style>
+
+      
+        .hero{
+            
+            margin: 10px;
+            height: 90vh;
+            background-color: aqua;
+            padding: 15px;
+            align-items: center;
+            text-align: center;
+        }
+
+        input {
+            width: 190px;
+            height: 25px;
+            border-radius: 8px;
+            padding: 8px;
+            margin-top: 10px;
+            font-size: 15px;
+            font-weight: 500;
+            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+        }
+        h1{
+            color: green;
+            font-weight: bold;
+            font-size: 40px;
+            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+        }
+        p{
+            font-size: 15px;
+            font-weight: 500;
+            color: rgb(3, 103, 25);
+            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+        }
+        button{
+            padding: 8px;
+            margin-top: 10px;
+            width: 190px;
+            font-size: 20px;
+            background-color: green;
+            color: white;
+            border-radius: 10px;
+            border-style: none;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: lightgreen;
+            color: black;
+        }
+        .main{
+            font-size: 25px;
+            font-weight: 500;
+            margin-top: 15px;
+            color: rgb(3, 103, 25);
+            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+        }
+
+    </style>
+
+
+    <script>
+        let main = document.querySelector('.main');
+        let result = document.createElement("div");
+      
+
+
+        document.querySelector("#calculate-BMI").addEventListener('click', function () {
+            let kg = parseFloat(document.querySelector(".kginput").value);
+            console.log(kg);
+
+            let cm = parseFloat(document.querySelector(".cminput").value);
+            console.log(cm);
+
+            // let heightInMeters = cm / 100;
+            let bmi = (kg / ((cm / 100) * (cm / 100)));
+            
+            console.log(bmi);
+
+            let status = '';
+            if (bmi <= 18.4){
+                status= 'under weight'
+            }
+            else if (bmi >= 18.5 && bmi <= 24.9){
+                status = 'Normal weight'
+            }
+            else if (bmi >= 25 && bmi <= 29.9){
+                status = 'Over weight'
+            }
+            else if (bmi >= 30){
+                status = 'Obess'
+            }
+
+            result.innerText = `Your BMI is ${bmi.toFixed(2)} so you are ${status}`
+            main.append(result);
+
+        });
+
+    </script>
+</body>
+
+</html>

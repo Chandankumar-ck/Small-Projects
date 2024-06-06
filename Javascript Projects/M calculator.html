@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        * {
+            margin: 0px;
+            padding: 0px;
+            font-family: 'Times New Roman', Times, serif;
+        }
+
+        h1 {
+            color: rgb(15, 128, 118);
+            font-size: 42px;
+            text-align: center;
+            margin: 10px;
+            font-weight: 700;
+        }
+
+        input {
+            grid-column: span 4;
+            text-align: right;
+            font-size: 40px;
+            color: grey;
+            padding: 8px;
+            border-radius: 8px;
+            border: 0px none;
+            box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+
+        }
+
+        .container {
+            justify-content: center;
+            display: grid;
+            padding: 37px;
+            grid-template-columns: 50px 50px 50px 50px;
+            grid-template-rows: 50px 50px 50px 50px 50px;
+            gap: 8px;
+            /* background-color: aquamarine; */
+            margin: 7% 39% 7% 39%;
+            height: max-content;
+            border-radius: 8px;
+            box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
+
+
+        }
+
+        button {
+            border-radius: 8px;
+            font-size: 15px;
+            color: black;
+            background-color: white;
+            font-weight: 700;
+            border: 0px none;
+            box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+
+        }
+
+        .button:hover {
+            background-color: #939793
+        }
+
+        .button:active {
+            background-color: #acb1ac;
+            transform: translateY(4px);
+        }
+
+        .red_box {
+            background-color: red;
+            color: white;
+            font-weight: bold;
+        }
+        .red_box:hover {
+            background-color: #939793
+        }
+
+        .red_box:active {
+            background-color: #acb1ac;
+            transform: translateY(4px);
+        }
+
+        .symbol {
+            background-color: black;
+            color: white;
+            font-weight: bold;
+        }
+
+        .symbol:hover {
+            background-color: #939793
+        }
+
+        .symbol:active {
+            background-color: #acb1ac;
+            transform: translateY(4px);
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Masai Calculator</h1>
+    <div class="container" id="Calculator">
+        <input type="text" id="display" placeholder="0">
+        <button class="button" onclick=" currentDisplay = currentDisplay + '1';
+        document.querySelector('#display').value = currentDisplay
+        ">1</button>
+        <button class="button" onclick=" currentDisplay = currentDisplay + '2';
+        document.querySelector('#display').value = currentDisplay
+        ">2</button>
+        <button class="button" onclick=" currentDisplay = currentDisplay + '3';
+        document.querySelector('#display').value = currentDisplay
+        ">3</button>
+        <button class="button symbol" onclick=" currentDisplay = currentDisplay + '+';
+        document.querySelector('#display').value = currentDisplay
+        ">+</button>
+        <button class="button" onclick=" currentDisplay = currentDisplay + '4';
+        document.querySelector('#display').value = currentDisplay
+        ">4</button>
+        <button class="button" onclick=" currentDisplay = currentDisplay + '5';
+        document.querySelector('#display').value = currentDisplay
+        ">5</button>
+        <button class="button" onclick=" currentDisplay = currentDisplay + '6';
+        document.querySelector('#display').value = currentDisplay
+        ">6</button>
+        <button class="button symbol" onclick=" currentDisplay = currentDisplay + '-';
+        document.querySelector('#display').value = currentDisplay
+        ">-</button>
+        <button class="button" onclick=" currentDisplay = currentDisplay + '7';
+        document.querySelector('#display').value = currentDisplay
+        ">7</button>
+        <button class="button" onclick=" currentDisplay = currentDisplay + '8';
+        document.querySelector('#display').value = currentDisplay
+        ">8</button>
+        <button class="button" onclick=" currentDisplay = currentDisplay + '9';
+        document.querySelector('#display').value = currentDisplay
+        ">9</button>
+        <button class="button symbol" onclick=" currentDisplay = currentDisplay + '*';
+        document.querySelector('#display').value = currentDisplay
+        ">X</button>
+        <button class="button red_box" onclick=" currentDisplay = '';
+        document.querySelector('#display').value = currentDisplay
+        ">C</button>
+        <button class="button" onclick=" currentDisplay = currentDisplay + '0';
+        document.querySelector('#display').value = currentDisplay
+        ">0</button>
+        <button class="button symbol" onclick=" 
+        currentDisplay = eval(currentDisplay);
+        document.querySelector('#display').value = currentDisplay
+        ">=</button>
+        <button class="button symbol" onclick=" currentDisplay = currentDisplay + '/';
+        document.querySelector('#display').value = currentDisplay
+        ">/</button>
+
+    </div>
+
+
+    <script>
+        let currentDisplay = " ";
+        document.querySelector('#display').value = currentDisplay;
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="colorBox"></div>
+<button id="btn--red">RED</button>
+<button id="btn--yellow">YELLOW</button>
+<button id="btn--green">GREEN</button>
+<button id="btn--reset">RESET</button>
+
+<style>
+    #colorBox {
+  width: 200px;
+  height: 200px;
+  background-color: black;
+  margin: 20px;
+}
+.button {
+  margin: 5px;
+}
+
+</style>
+
+<script>
+
+    let colorbox = document.querySelector('#colorBox');
+    let btnred = document.querySelector('#btn--red');
+    let btnyellow = document.querySelector('#btn--yellow');
+    let btngreen = document.querySelector('#btn--green');
+    let btnreset = document.querySelector('#btn--reset');
+
+    btnred.addEventListener('click', function(){
+        colorbox.style.backgroundColor=" red";
+    })
+
+    btnyellow.addEventListener('click', function(){
+        colorbox.style.backgroundColor="yellow";
+    })
+
+    btngreen.addEventListener('click', function(){
+        colorbox.style.backgroundColor="green";
+    })
+
+    btnreset.addEventListener('click', function(){
+        colorbox.style.backgroundColor=" black";
+    }) 
+
+</script> 
+
+
+
+<style>
+    #colorBox {
+  width: 200px;
+  height: 200px;
+  background-color: black;
+  margin: 20px;
+}
+.button {
+  margin: 5px;
+}
+</style>
+
+
+
+</body>
+</html>

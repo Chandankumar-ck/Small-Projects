@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM mini calculator</title>
+</head>
+
+<body>
+    <style>
+        * {
+            margin-right: 15%;
+
+
+        }
+
+        .main {
+            margin: 280px 35% 20px 35%;
+            display: flex;
+            align-items: center;
+            width: 100vh;
+            justify-content: space-around;
+        }
+
+        input {
+            height: 25px;
+            width: 150px;
+            padding: 5px;
+            border-radius: 5px;
+            text-align: center;
+            margin-top: 8px;
+            margin-right: 0px;
+            border: 2px solid black;
+
+        }
+
+        .result {
+            height: 25px;
+            width: 150px;
+            padding: 5px;
+            border-radius: 5px;
+            text-align: center;
+            margin-top: 8px;
+            margin-right: 10px;
+            border: 2px solid black;
+            background-color: greenyellow;
+            color: white;
+            font-size: 15px;
+        }
+
+        .function-btn {
+            width: 100vh;
+            margin-left: 35%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+        }
+
+        button {
+            height: 40px;
+            width: 110px;
+            border-radius: 5px;
+            padding: 10px;
+            font-size: 12px;
+            font-weight: bold;
+            background-color: rgb(6, 10, 87);
+            color: white;
+            cursor: pointer;
+            margin: 5px;
+            align-items: center;
+        }
+
+        button:hover {
+            background-color: rgb(35, 149, 226);
+
+        }
+    </style>
+
+    <div class="main">
+        <input type="number" placeholder="Enter first number" class="input1">🔄️
+        <input type="number" placeholder="Enter second number" class="input2"> 🟰
+        <br>
+        <input type="number" class="result" placeholder="Your result is : " disabled>
+
+    </div>
+
+    <div class="function-btn">
+        <button class="btn-add" onclick="add ()">ADD ➕ </button>
+        <button class="btn-subtract" onclick="subtract()"> SUBTRACT ➖</button>
+
+        <button class="btn-multiply" onclick="multiply()"> MULTIPLY ✖️</button>
+        <button class="btn-divide" onclick="deivide()"> DEVIDE ➗ </button>
+    </div>
+
+    <script>
+
+        function add() {
+            let number1 = parseFloat(document.querySelector('.input1').value);
+            let number2 = parseFloat(document.querySelector('.input2').value);
+            let result = document.querySelector('.result').value = number1 + number2;
+            
+
+        }
+
+        function subtract() {
+            let number1 = parseFloat(document.querySelector('.input1').value);
+            let number2 = parseFloat(document.querySelector('.input2').value);
+            let result = document.querySelector('.result').value = number1 - number2;
+            
+        }
+
+        function multiply() {
+            let number1 = parseFloat(document.querySelector('.input1').value);
+            let number2 = parseFloat(document.querySelector('.input2').value);
+            let result = document.querySelector('.result').value = number1 * number2;
+            
+        }
+
+        function multiply() {
+            let number1 = parseFloat(document.querySelector('.input1').value);
+            let number2 = parseFloat(document.querySelector('.input2').value);
+            let result = document.querySelector('.result').value = number1 / number2;
+          
+        }
+
+
+
+    </script>
+
+
+
+</body>
+
+</html>

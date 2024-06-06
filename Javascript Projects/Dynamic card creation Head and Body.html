@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Car Creation using DOM</title>
+</head>
+<body>
+    <div id="card-container">
+
+    </div>
+
+    <style>
+        .card {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  transition: 0.3s;
+  width: 300px;
+  padding: 20px;
+  text-align: center;
+  background-color: white;
+  border-radius: 10px;
+}
+    </style>
+
+    <script>
+        function createCard (title, content) {
+            let card = document.createElement("div")
+            let cardtitle = document.createElement("h2")
+            let cardcontent = document.createElement("p")
+
+            card.className = " card";
+            
+            cardtitle.textContent = title;
+            cardcontent.textContent = content;
+
+            card.append(cardtitle);
+            card.append(cardcontent);
+
+            document.querySelector("#card-container").append(card);
+
+        }
+
+        let inputtitle = document.createElement("input")
+        let inputcontent = document.createElement("input")
+        document.querySelector("#card-container").append(inputtitle);
+        document.querySelector("#card-container").append(inputcontent);
+        
+
+        let createbtn = document.createElement("button");
+        document.querySelector("#card-container").append(createbtn);
+        createbtn.innerText = "Create Card";
+
+        
+
+        // createCard ( titlein, contentin)
+        
+        createbtn.addEventListener('click', function (){
+            let intitle = inputtitle.value;
+            let incontent = inputcontent.value;
+
+            createCard(intitle, incontent)
+
+            inputtitle.value = "";
+            inputcontent.value = "";
+}) 
+
+   
+              
+
+        // createCard("chandan Kumar", "this is my first paragraph for create such card for you")
+    </script>
+
+</body>
+</html>

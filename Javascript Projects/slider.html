@@ -1,0 +1,151 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Slide Show</title>
+    
+</head>
+<body>
+    <div class="container">
+        <div id="slideshow">
+            
+            <img src="https://via.placeholder.com/800x400?text=Image+1" alt="01">
+            <img src="https://via.placeholder.com/800x400?text=Image+2" alt="02">
+            <img src="https://via.placeholder.com/800x400?text=Image+3" alt="03">
+            <img src="https://via.placeholder.com/800x400?text=Image+4" alt="04">
+            <img src="https://via.placeholder.com/800x400?text=Image+5" alt="05">
+            <img src="https://via.placeholder.com/800x400?text=Image+6" alt="06">
+            <img src="https://via.placeholder.com/800x400?text=Image+7" alt="07">
+            <img src="https://via.placeholder.com/800x400?text=Image+8" alt="08">
+            <img src="https://via.placeholder.com/800x400?text=Image+9" alt="09">
+            <img src="https://via.placeholder.com/800x400?text=Image+10" alt="10">
+           
+        </div>
+        <button id="toggleSlideshow">Start/Stop</button>
+        <button id="prevSlide">Previous</button>
+        <button id="nextSlide">Next</button>
+    </div>
+    <script src="script.js"></script>
+
+    <style>
+       
+body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #f0f0f0;
+}
+
+.container {
+    position: relative;
+    width: 80%;
+    max-width: 1000px;
+    overflow: hidden;
+    text-align: center;
+}
+
+#slideshow {
+    display: flex;
+   
+}
+
+#slideshow img {
+    width: 100%;
+    display: none;  
+}
+
+#slideshow img.active {
+    display: block; 
+}
+
+button {
+    margin-top: 20px;
+    padding: 10px 20px;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    background-color: #720af2;
+    color: white;
+}
+
+button:hover {
+    background-color: #9c0ff9;
+}
+
+    </style>
+
+
+<script>
+
+  
+let currentSlide = 0;
+let timer;
+let isPlaying = false;
+const slides = document.querySelectorAll('#slideshow img');
+const toggleSlideshowBtn = document.getElementById('toggleSlideshow');
+const prevSlideBtn = document.getElementById('prevSlide');
+const nextSlideBtn = document.getElementById('nextSlide');
+
+function showSlide(index) {
+    slides.forEach((slide, i) => {
+        slide.classList.remove('active');
+        if (i === index) {
+            slide.classList.add('active');
+        }
+    });
+}
+
+function nextSlide() {
+    currentSlide = (currentSlide + 1) % slides.length;
+    showSlide(currentSlide);
+}
+
+function prevSlide() {
+    currentSlide = (currentSlide - 1 + slides.length) % slides.length;
+    showSlide(currentSlide);
+}
+
+function startSlideshow() {
+    timer = setInterval(nextSlide, 2000);
+    isPlaying = true;
+    toggleSlideshowBtn.textContent = 'Stop';
+}
+
+function stopSlideshow() {
+    clearInterval(timer);
+    isPlaying = false;
+    toggleSlideshowBtn.textContent = 'Start';
+}
+
+function toggleSlideshow() {
+    if (isPlaying) {
+        stopSlideshow();
+    } else {
+        startSlideshow();
+    }
+}
+
+toggleSlideshowBtn.addEventListener('click', toggleSlideshow);
+prevSlideBtn.addEventListener('click', () => {
+    stopSlideshow();
+    prevSlide();
+});
+nextSlideBtn.addEventListener('click', () => {
+    stopSlideshow();
+    nextSlide();
+});
+
+
+showSlide(currentSlide);
+
+</script>
+</body>
+</html>

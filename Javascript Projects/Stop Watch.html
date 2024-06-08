@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stop Watch using JS</title>
+</head>
+<body>
+   
+    <div class="display">00:00:00</div>
+    <button id="startBtn">Start</button>
+    <button id="pauseBtn">Pause</button>
+    <button id="resetBtn">Reset</button>
+
+    <style>
+        
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f0f0f0;
+            font-family: Arial, sans-serif;
+            margin: 0;
+        }
+
+        h2 {
+            text-align: center;
+            align-items: center;
+            font-size: 50px;
+            margin-bottom: 250px;
+        }
+
+        .display {
+            font-family: 'Digital-7', monospace;
+            font-size: 100px;
+            color: lightgreen;
+            background-color: black;
+            padding: 20px 40px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        button {
+            font-size: 18px;
+            padding: 10px 20px;
+            margin: 2px 8px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        #startBtn {
+            background-color: #4caf50;
+            color: white;
+        }
+
+        #pauseBtn {
+            background-color: #f44336;
+            color: white;
+        }
+
+        #resetBtn {
+            background-color: #ff9800;
+            color: white;
+        }
+
+        button:disabled {
+            background-color: #b0b0b0;
+            cursor: not-allowed;
+        }
+    
+    </style>
+
+
+
+    <script>
+        let timer;
+        let seconds = 0;
+
+        let display = document.querySelector('.display');
+        let start = document.querySelector('#startBtn');
+        let pause = document.querySelector('#pauseBtn');
+        let reset = document.querySelector('#resetBtn');
+
+        start.addEventListener('click', startTimer);
+        pause.addEventListener('click', pauseTimer);
+        reset.addEventListener('click', resetTimer);
+
+        function startTimer(){
+          timer = setInterval(updateTimer, 1000)
+          start.disabled = true;
+          pause.disabled = false;
+        }
+
+        function pauseTimer(){
+            clearInterval(timer);
+            start.disabled = false;
+            pause.disabled = true;
+        }
+
+        function resetTimer(){
+            clearInterval(timer)
+            display.textContent = "00:00:00"
+            start.disabled = false;
+            pause.disabled = false;
+
+        }
+        function updateTimer(){
+            seconds++
+            
+            let displayMinutes = Math.floor(seconds/60);
+            let displayHours = Math.floor(displayMinutes/60)
+            let displaySeconds = seconds % 60;
+
+            display.textContent = displayHours.toString().padStart(2,"0") + ":" + displayMinutes.toString().padStart(2,"0") + ":" + displaySeconds.toString().padStart(2, "0");  
+        }
+
+
+
+
+
+    </script>
+</body>
+</html>
